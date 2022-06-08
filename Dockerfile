@@ -11,6 +11,7 @@ RUN wget -O - -q https://raw.githubusercontent.com/reviewdog/reviewdog/master/in
 
 # Copies code file from your action repository to the filesystem path `/` of the container
 COPY entrypoint.sh /entrypoint.sh
+COPY cloud.xml /cloud.xml
 
 # Code file to execute when the docker container starts up (`entrypoint.sh`)
 ENTRYPOINT ["sh", "/entrypoint.sh"]
