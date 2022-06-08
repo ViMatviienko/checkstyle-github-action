@@ -4,7 +4,8 @@ description: 'Greet someone and record the time'
 inputs:
   github_token:
     description: "GITHUB_TOKEN"
-    default: "${{ github.token }}"
+    default: ${{ github.token }}
+    required: true
   workdir:
     description: "Working directory relative to the root directory."
     default: "."
