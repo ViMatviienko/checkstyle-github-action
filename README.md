@@ -6,7 +6,10 @@ reviewdog runs only for diff like Pull-Request, not whole code base.
 
 ## How to use
 ```yaml
-on: pull_request
+on:
+  pull_request:
+    paths:
+      - '**.java'
 
 jobs:
   checkstyle_job:
