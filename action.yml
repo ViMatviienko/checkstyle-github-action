@@ -58,11 +58,6 @@ inputs:
 runs:
   using: composite
   steps:
-    - name: Set up Java 11
-      uses: actions/setup-java@v3
-      with:
-        java-version: '11'
-        distribution: 'adopt'
     - run: $GITHUB_ACTION_PATH/entrypoint.sh
       shell: bash
       env:
