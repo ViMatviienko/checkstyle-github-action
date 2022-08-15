@@ -5,7 +5,7 @@ echo "Getting tools"
 cd "${GITHUB_WORKSPACE}" || exit 1
 
 sudo wget -O /checkstyle.jar https://github.com/checkstyle/checkstyle/releases/download/checkstyle-${CHECKSTYLE_VERSION}/checkstyle-${CHECKSTYLE_VERSION}-all.jar?raw=true
-wget -O - -q https://github.com/ViMatviienko/review_modified/blob/dev/install.sh| sh -s -- -b /usr/local/bin/ ${REVIEWDOG_VERSION}
+wget -O - -q https://raw.githubusercontent.com/reviewdog/reviewdog/master/install.sh| sh -s -- -b /usr/local/bin/ ${REVIEWDOG_VERSION}
 
 echo "Running check"
 
