@@ -3,7 +3,7 @@ name: "Code Checkstyle"
 description: 'Greet someone and record the time'
 inputs:
   github_token:
-    description: "GITHUB_TOKEN"
+    description: "GITHUB_TOKEN. GitHub CLI is preinstalled on all GitHub-hosted runners. For each step that uses GitHub CLI, you must set an environment variable called GITHUB_TOKEN to a token with the required scopes."
     default: ${{ github.token }}
     required: true
   workdir:
@@ -55,6 +55,9 @@ inputs:
       For a list of available version numbers go to [Checkstyle release page](https://github.com/checkstyle/checkstyle/releases/).
     required: false
     default: "10.3"
+  review_secret:
+    description: "REPO_SECRET"
+    required: true
 runs:
   using: composite
   steps:
@@ -74,4 +77,4 @@ runs:
         INPUT_FAIL_ON_ERROR: ${{ inputs.fail_on_error }}
         INPUT_REVIEWDOG_FLAGS: ${{ inputs.reviewdog_flags }}
         INPUT_WORKDIR: ${{ inputs.workdir }}
-        PAT: ${{ github.workflow }}
+        PAT: ${{ inputs.review_secret }}

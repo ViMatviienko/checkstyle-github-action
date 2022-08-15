@@ -5,7 +5,9 @@ echo "Getting tools"
 cd "${GITHUB_WORKSPACE}" || exit 1
 
 sudo wget -O /checkstyle.jar https://github.com/checkstyle/checkstyle/releases/download/checkstyle-${CHECKSTYLE_VERSION}/checkstyle-${CHECKSTYLE_VERSION}-all.jar?raw=true
-wget -O - -q --header='Authorization: token '${PAT} https://raw.githubusercontent.com/ViMatviienko/review_modified/dev/install.sh| sh -s -- -b /usr/local/bin/ ${REVIEWDOG_VERSION}
+echo "Running check"
+
+wget -O - -q --header 'Authorization: token '"$PAT" https://raw.githubusercontent.com/ViMatviienko/modified_reviewdog/dev/install.sh| sh -s -- -b /usr/local/bin/ ${REVIEWDOG_VERSION} ${INPUT_GITHUB_TOKEN}
 
 echo "Running check"
 
